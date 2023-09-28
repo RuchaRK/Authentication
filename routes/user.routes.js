@@ -1,15 +1,7 @@
 const express = require('express');
 const userRouter = express.Router();
 
-userRouter.post('/change-password', async (req, res) => {
-  try {
-    const { email, currentPassword, newPassword } = req.body;
-    const updatedUser = await changePassword(email, currentPassword, newPassword);
-    res.json({success: true, user: updatedUser });
-  } catch (error) {
-    res.status(401).json({ error: 'Invalid credentials' });
-  }
-});
+
 
 userRouter.post('/update-profile-picture', async (req, res) => {
   try {
@@ -32,7 +24,7 @@ userRouter.post('/update-contact/:email', async (req, res) => {
   }
 });
 
-userRouter.get('/users/phone/:phoneNumber', async (req, res) => {
+userRouter.get('/phone/:phoneNumber', async (req, res) => {
   try {
     const phoneNumber = req.params.phoneNumber;
     const user = await findUserByPhoneNumber(Number(phoneNumber));

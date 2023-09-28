@@ -1,8 +1,5 @@
 const express = require('express');
-const router = express.Router();
 const Movie= require("../models/movie.model");
-const User= require("../models/user.model");
-const authVerify = require('../middlewares/authVerify.middleware');
 
 async function addReview(movieId, userId, reviewText) {
   try {
@@ -72,4 +69,11 @@ async function getMovieReviewsWithUserDetails(movieId) {
   } catch (error) {
     throw error;
   }
+}
+
+module.exports = {
+  addReview,
+  topFiveRating,
+  lastFiveRating,
+  getMovieReviewsWithUserDetails
 }

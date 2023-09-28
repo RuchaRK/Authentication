@@ -34,8 +34,24 @@ async function login(email, password) {
   }
 }
 
-aysn function 
+async function changePassword(email, currentPassword, newPassword) {
+  try {
+    const user = await User.findOne({ email });
+    if (user && user.password === currentPassword) {
+      user.password = newPassword;
+      const updatedUser = await user.save();
+      return updatedUser;
+    } else {
+      throw new Error("Invalid credentials");
+    }
+  } catch (error) {
+    throw error;
+  }
+}
 
-
-
+module.exports = {
+  signup,
+  login,
+  changePassword
+}
 

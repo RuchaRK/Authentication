@@ -1,3 +1,5 @@
+const User= require("../models/user.model");
+
 async function changePassword(email, currentPassword, newPassword) {
   try {
     const user = await User.findOne({ email });
@@ -56,4 +58,11 @@ async function findUserByPhoneNumber(phoneNumber) {
   } catch (error) {
     throw error;
   }
+}
+
+module.exports = {
+  changePassword,
+  updateProfilePicture,
+  updateContactDetails,
+  findUserByPhoneNumber
 }

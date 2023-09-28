@@ -5,8 +5,9 @@ require('./db')
 const users = require("./routes/users.router");
 const auth = require("./routes/auth.router");
 
-const errorHandle = require("./middlewares/errorHandler.middleware");
+const errorHandler = require("./middlewares/errorHandler.middleware");
 const routeNotFound = require("./middlewares/routeNotFound.middleware");
+const authVerify = require("./middlewares/authVerify.middleware");
 
 app.use(express.json());
 

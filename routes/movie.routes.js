@@ -3,7 +3,7 @@ const movieRouter = express.Router();
 const {} = require("")
 
 
-movieRouter.post('/movies/:movieId/reviews', authVerify, async (req, res) => {
+movieRouter.post('/:movieId/reviews', authVerify, async (req, res) => {
   try {
     const movieId = req.params.movieId;
     const { userId, rating, review } = req.body;
@@ -14,7 +14,7 @@ movieRouter.post('/movies/:movieId/reviews', authVerify, async (req, res) => {
   }
 });
 
-movieRouter.get('/movies/:movieId/reviews', async (req, res) => {
+movieRouter.get('/:movieId/reviews', async (req, res) => {
   try {
     const movieId = req.params.movieId;
     const reviewsWithUserDetails = await getMovieReviewsWithUserDetails(movieId);
